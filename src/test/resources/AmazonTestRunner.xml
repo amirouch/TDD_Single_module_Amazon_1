@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+
+<suite name="Amazon Test Suite">
+
+    <parameter name="useCloudEnv" value="true"/>     <!-- IF YOU WANT TO RUN YOUR TEST IN LOCAL MACHINE ==>> value="false" -->
+    <parameter name="cloudEnvName" value="browserStack"/>
+    <parameter name="os" value="windows"/>
+    <parameter name="osVersion" value="10"/>
+    <!--        <parameter name="os" value="OS X"/>-->
+    <!--        <parameter name="osVersion" value="Big Sur"/>-->
+    <!--    <parameter name="browserName" value="firefox"/>-->
+    <!--    <parameter name="browserVersion" value="90"/>-->
+    <parameter name="browserName" value="chrome"/>
+    <parameter name="browserVersion" value="96"/>
+    <parameter name="url" value="https://www.amazon.com/"/>
+
+    <test name="Test Basics 1">
+
+        <classes>
+            <class name="amazon.testPages.testHomePage.TestHomePage"/>
+            <class name="amazon.testPages.testSignUpPage.TestSignUpPage"/>
+        </classes>
+
+    </test>
+
+
+</suite>
