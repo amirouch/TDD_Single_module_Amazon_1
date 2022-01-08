@@ -4,7 +4,7 @@
 
 <suite name="Amazon Test Suite">
 
-    <parameter name="useCloudEnv" value="true"/>     <!-- IF YOU WANT TO RUN YOUR TEST IN LOCAL MACHINE ==>> value="false" -->
+    <parameter name="useCloudEnv" value="false"/>     <!-- IF YOU WANT TO RUN YOUR TEST IN LOCAL MACHINE ==>> value="false" -->
     <parameter name="cloudEnvName" value="browserStack"/>
     <parameter name="os" value="windows"/>
     <parameter name="osVersion" value="10"/>
@@ -20,7 +20,7 @@
 
         <classes>
             <class name="amazon.testPages.testHomePage.TestHomePage"/>
-            <class name="amazon.testPages.testSignUpPage.TestSignUpPage"/>
+<!--            <class name="amazon.testPages.testSignUpPage.TestSignUpPage"/>-->
         </classes>
 
     </test>
