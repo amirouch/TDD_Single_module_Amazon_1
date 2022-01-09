@@ -22,7 +22,10 @@ public class ConnectToSqlDB {
     public static Properties loadProperties() throws IOException {
         Properties prop = new Properties();
         //InputStream ism = new FileInputStream("/secret.properties");
-        InputStream ism = new FileInputStream("../Generic/src/main/secret.properties");
+       // InputStream ism = new FileInputStream("../Generic/src/main/secret.properties");
+       // InputStream ism = new FileInputStream("../afterOOP/configPropertyDataBase/secret.properties");
+       //InputStream ism = new FileInputStream("C:\\Users\\USER\\IdeaProjects\\TDD_Single_module_Amazon_1\\src\\main\\java\\configuration\\databases\\secret.properties");//**********
+       InputStream ism = new FileInputStream("../TDD_Single_module_Amazon_1/src/main/java/configuration/databases/secret.properties");//**********
         prop.load(ism);
         ism.close();
         return prop;
@@ -238,4 +241,88 @@ public class ConnectToSqlDB {
             System.out.println(user.getStName() + " " + user.getStID()+ " " + user.getStDOB());
         }
     }
+
+
+    //    public static Connection connection = null;
+//    public static Statement statement = null;
+//    public static PreparedStatement preparedStatement = null;
+//    public static ResultSet resultSet = null;
+
+//    // Load properties file   ********   1   **********
+//    public static Properties loadProperties(String filePath) throws IOException {
+//        Properties properties = new Properties();
+//        InputStream inputStream = new FileInputStream(filePath);
+//        properties.load(inputStream);
+//        inputStream.close();
+//        return properties;
+//    }
+//
+//    // we used loadProperties(filePath) method in the following method ********   2   **********
+//    public static Connection getDatabaseConnection() throws IOException, ClassNotFoundException, SQLException {
+//        // String filePath = "../LearnJava_QE_Summer2021/configProperty/Secret.properties";
+//       /////// String filePath = "../afterOOP/configPropertyDataBase/secret.properties"; // copie absolut path of secret.properties
+//        String filePath = "C:\\Users\\USER\\IdeaProjects\\TDD_Single_module_Amazon_1\\src\\main\\java\\configuration\\databases\\secret.properties"; // copie absolut path of secret.properties
+//        Properties properties = loadProperties(filePath);
+//        String driverClass = properties.getProperty("MYSQLJDBC.driver");
+//        String url = properties.getProperty("MYSQLJDBC.url");
+//        String userName = properties.getProperty("MYSQLJDBC.userName");
+//        String password = properties.getProperty("MYSQLJDBC.password");
+//
+//        Class.forName(driverClass);
+//        connection = DriverManager.getConnection(url, userName, password);
+//        System.out.println("Database is connected");
+//        return connection;
+//    }
+//
+//    // ********   3   **********
+//    public static List<String> getResultSetData(ResultSet resultSet, String columnName) throws SQLException {
+//        List<String> dataList = new ArrayList<>();
+//        while (resultSet.next()) {
+//            String itemName = resultSet.getString(columnName);
+//            dataList.add(itemName);
+//        }
+//        return dataList;
+//    }
+//
+//    public static void closeDatabaseConnection() {
+//        try {
+//            if (resultSet != null) {
+//                resultSet.close();
+//            }
+//            if (statement != null) {
+//                statement.close();
+//            }
+//            if (connection != null) {
+//                connection.close();
+//            }
+//        } catch (SQLException throwables) {
+//            System.out.println("Connection not Closed");
+//        }
+//    }
+//
+//    // ********   4   ********** ===== READ DATA ==== we basecly needed 1, 2, 3 for 4:
+//    // we used getDatabaseConnection() and getResultSetData(resultSet, columnName) method in the following method
+//    public static List<String> readDataBase(String tableName, String columnName) throws Exception {
+//        List<String> data = new ArrayList<>();
+//        try {
+//            ConnectToSqlDB.getDatabaseConnection(); // will create connection to DB
+//            statement = connection.createStatement();
+//            String query = "select * from " + tableName;
+//            resultSet = statement.executeQuery(query);
+//            data = getResultSetData(resultSet, columnName);
+//            System.out.println("Data value " + data);
+//            for (String dt : data) {
+//                System.out.println(dt);
+//            }
+//        } catch (ClassNotFoundException exc) {
+//            System.out.println("Class not Found Exception");
+//            throw exc;
+//        } finally {
+//            closeDatabaseConnection();
+//        }
+//        return data;
+//
+//    }
+
+
 }

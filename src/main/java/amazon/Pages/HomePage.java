@@ -30,13 +30,17 @@ public class HomePage extends base {
     public WebElement selectQty;
 
     public void enterSearchKeyword(String productName) {
+        searchBox.clear();
         searchBox.sendKeys(productName);
     }
     public void clickOnSearchBox() {
         searchButton.click();
     }
+
     public void verifySearchKeyword(String expectedKeyWord) {
         String actualSearchKeyword = searchResult.getText();
+        System.out.println("Actual Text: "+actualSearchKeyword);
+
         Assert.assertEquals(actualSearchKeyword, expectedKeyWord, "Search keyword not match");
     }
 

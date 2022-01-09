@@ -17,7 +17,7 @@ public class DataDriven {
     public static void insertDataIntoDB(){
        List<String> list = getItemValue();
         connectToSqlDB = new ConnectToSqlDB();
-        connectToSqlDB.insertDataFromArrayListToSqlTable(list,"amazonitems","items");
+     /////////////////////////////////////   connectToSqlDB.insertDataFromArrayListToSqlTable(list,"amazonitems","items");
     }
 
     //  From Class/ Same class
@@ -38,7 +38,7 @@ public class DataDriven {
     //Database
     public static List<String> getItemsListFromDB() throws Exception, IOException, SQLException, ClassNotFoundException {
         List<String> list = new ArrayList<>();
-        list = connectToSqlDB.readDataBase("AmazonItems", "items");
+        list = connectToSqlDB.readDataBase("amazon_items", "AmazonItems"); // ************************
         return list;
     }
 
@@ -51,7 +51,8 @@ public class DataDriven {
 
     //Excel file
     public static List<String> getItemsListFromExcel() throws Exception, IOException, SQLException, ClassNotFoundException{
-        String path = "../Amazon/DataTest/AmazonData.xlsx";
+        //////String path = "../Amazon/DataTest/AmazonData.xlsx";
+        String path = "C:\\Users\\USER\\IdeaProjects\\TDD_Single_module_Amazon_1\\DataTest\\amazonProducts.xlsx";
         String[] myStringArray = excelReader.fileReader2(path, 0);
         for(int i=1;i<myStringArray.length; i++)
             System.out.println(myStringArray[i] + " ");
